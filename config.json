@@ -1,0 +1,9 @@
+{
+    "projetos_db":{
+        "database": "SUA_DATABASE",
+        "user": "SEU_USUARIO",
+        "password": "SUA_SENHA",
+        "host": "SEU_HOST",
+        "port": 5432
+    }
+}
