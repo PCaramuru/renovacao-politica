@@ -304,14 +304,46 @@ def excel_to_projetosdb(filename):
     df_clean['DS_SITUACAO_CANDIDATO_URNA'] = df['DS_SITUACAO_CANDIDATO_URNA'].apply(troca_erro_string)
     df_clean['ST_CANDIDATO_INSERIDO_URNA'] = df['ST_CANDIDATO_INSERIDO_URNA'].apply(troca_erro_string)
 
-    #df_clean['NM_TIPO_DESTINACAO_VOTOS'] = None
-    #df_clean['CD_SITUACAO_CANDIDATO_TOT'] = None
-    #df_clean['DS_SITUACAO_CANDIDATO_TOT'] = None
-    #df_clean['ST_PREST_CONTAS'] = None
-    #df_clean['ST_SUBSTITUIDO'] = None
-    #df_clean['SQ_SUBSTITUIDO'] = None
-    #df_clean['SQ_ORDEM_SUPLENCIA'] = None
-    #df_clean['DT_ACEITE_CANDIDATURA'] = None
+    #*Corrige erros das colunas que não são comuns a todos os dataframes
+    if 'NM_TIPO_DESTINACAO_VOTOS' in df.columns:
+        df_clean['NM_TIPO_DESTINACAO_VOTOS'] = df['NM_TIPO_DESTINACAO_VOTOS'].apply(troca_erro_string)
+    else:
+        df_clean['NM_TIPO_DESTINACAO_VOTOS'] = None
+
+    if 'CD_SITUACAO_CANDIDATO_TOT' in df.columns:
+        df_clean['CD_SITUACAO_CANDIDATO_TOT'] = df['CD_SITUACAO_CANDIDATO_TOTS'].apply(troca_erro)
+    else:
+        df_clean['CD_SITUACAO_CANDIDATO_TOT'] = None
+    
+    if 'DS_SITUACAO_CANDIDATO_TOT' in df.columns:
+        df_clean['DS_SITUACAO_CANDIDATO_TOT'] = df['DS_SITUACAO_CANDIDATO_TOTS'].apply(troca_erro_string)
+    else:
+        df_clean['DS_SITUACAO_CANDIDATO_TOT'] = None
+
+    if 'ST_PREST_CONTAS' in df.columns:
+        df_clean['ST_PREST_CONTAS'] = df['ST_PREST_CONTAS'].apply(troca_erro_string)
+    else:
+        df_clean['ST_PREST_CONTAS'] = None
+
+    if 'ST_SUBSTITUIDO' in df.columns:
+        df_clean['ST_SUBSTITUIDO'] = df['ST_SUBSTITUIDO'].apply(troca_erro_string)
+    else:
+        df_clean['ST_SUBSTITUIDO'] = None
+
+    if 'ST_SUBSTITUIDO' in df.columns:
+        df_clean['SQ_SUBSTITUIDO'] = df['SQ_SUBSTITUIDO'].apply(troca_erro_string)
+    else:
+        df_clean['SQ_SUBSTITUIDO'] = None
+
+    if 'SQ_ORDEM_SUPLENCIA' in df.columns:
+        df_clean['SQ_ORDEM_SUPLENCIA'] = df['SQ_ORDEM_SUPLENCIA'].apply(troca_erro_string)
+    else:
+        df_clean['SQ_ORDEM_SUPLENCIA'] = None
+
+    if 'DT_ACEITE_CANDIDATURA' in df.columns:
+        df_clean['DT_ACEITE_CANDIDATURA'] = df['DT_ACEITE_CANDIDATURA'].apply(troca_erro_string)
+    else:
+        df_clean['DT_ACEITE_CANDIDATURA'] = None
     
     projetos = Projetos()
     getattr(projetos, "insert_df")("tb_projetos_candidatos_clean", df_clean)
