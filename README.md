@@ -10,6 +10,8 @@ O objetivo é avaliar a taxa de sucesso de políticos segundo demografias observ
 
 Uma vez que a coleta dos dados eleitorais é feita de forma descentralizada - por meio dos Tribunais Regionais Eleitorais (TREs) ou em algumas ocasiões por cartórios eleitorais - a maior parte do tempo de processamento é destinada à limpeza e tratamento dos dados. Especificamente, à padronização dos missings values (NAs) e à substituição de caracteres inválidos. Ao todo, os dados consolidados ocupam 1,7 GB de memória.
 
+Este levantamento deu origem a diversas reportagens e matérias publicadas na impresa pelo Broadcast+, serviço de notícias em tempo real da Agência Estado. As principais contribuições e relatórios podem ser encontrados neste git no diretório ".//repercussao//"
+
 ORIENTAÇÕES
 
 Os arquivos com sufixo [ANO]_BRASIL.csv já reúnem os dados de todos os Estados em um repositório nacional. Caso prefira, é possível fazer a importação estadualizada de cada um dos outros arquivos, entretanto o processo é ainda mais demorado.
@@ -20,7 +22,7 @@ Alguns arquivos de exemplo - referentes às Eleições Gerais a partir de 2000 -
 
 COMO FUNCIONA
 
-1. O script lê cada um dos arquivos em formato .csv disponíveis no caminho .//repositorio//consulta_cand// que foram previamente baixados do Portal de Dados Abertos do TSE.
+1. O script ".//csv_to_eleicoesdb.py" lê cada um dos arquivos em formato .csv disponíveis no caminho ".//repositorio//consulta_cand//" que foram previamente baixados do Portal de Dados Abertos do TSE.
 
 2. Para cara coluna da tabela selecionada, o script aplica o tratamento adequado e a concatena ao dataframe limpo.
 
