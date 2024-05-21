@@ -1,7 +1,7 @@
 from datetime import datetime, date, time
 import pandas as pd
 import os
-from CRUD_projetosdb import Projetos
+from CRUD_eleicoesdb import Projetos
 
 def upper_spaceless_string (string_sujo):
 
